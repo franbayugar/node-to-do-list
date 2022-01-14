@@ -13,6 +13,10 @@ class Tarea {
         this.desc = desc;
         this.completadoEn = null;
     }
+
+    getId(){
+        return this.id;
+    }
 }
 
 module.exports = Tarea;
