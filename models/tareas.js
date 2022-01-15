@@ -35,9 +35,41 @@ class Tareas{
                             ? 'Completada'.green
                             : 'Pendiente'.red;
             console.log(`${idx} ${desc} :: ${estado}`);
-            
+
 
         });
+    }
+
+    listarPendientesCompletadas( completadas = true){
+            let indice = 0;
+            this.listadoArr.forEach( (tarea) =>{
+                const {desc, completadoEn} = tarea;
+                const estado = (completadoEn)
+                                ? 'Completada'.green
+                                : 'Pendiente'.red;
+                if(completadas){
+                    if(completadoEn){
+                        indice += 1;
+                        console.log(`${(indice + '.').green} ${desc} :: ${estado}`);
+                    }
+                }else{
+                    if(!completadoEn){
+                        indice += 1;
+                        console.log(`${(indice + '.').red} ${desc} :: ${estado}`);
+                    }
+                }
+    
+    
+            });
+        
+    }
+
+    borarTarea(id = ''){
+        if(this._listado[id]){
+            delete this._listado[id];
+        }else{
+            console.log(id);
+        }
     }
 }
 
